@@ -46,6 +46,7 @@ p {
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
             <li>
               <a href="{{route('todosColaboradores')}}" class="nav-link text-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="white" class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -70,16 +71,13 @@ p {
               </a>
             </li>
             <li>
-              <a href="{{route('todosConteudos')}}" class="nav-link text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16">
-                <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+              <a href="{{route('todosChamados')}}" class="nav-link text-white ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
+              <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
               </svg>
             </li>
             <li>
               <a href="" class="nav-link text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="68" height="6" fill="currentColor" class="bi bi-mouse-fill" viewBox="0 0 16 16">
-                <path d="M3 5a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0V5zm5.5-1.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2z"/>
-                </svg>
               </a>
             </li>
           </ul>
@@ -93,7 +91,7 @@ p {
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-dark">Sign-up</button>
+          <button type="button" class="btn btn-dark"> <a href="{{route('todosConteudos')}}" class="nav-link text-white">Base do Conhecimento</a></button>
         </div>
       </div>
     </div>

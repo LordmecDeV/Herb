@@ -5,6 +5,8 @@ use App\Http\Controllers\EntradaColaboradorCadastroController;
 use App\Http\Controllers\PcController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BaseConhecimentoController;
+use App\Http\Controllers\SaidaDeColaboradorController;
+use App\Http\Controllers\Auth\AuthController;
 
 
 /*
@@ -26,9 +28,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Routes Herb
-//Routes Colaboradores
+// Routes login
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register.login');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+//Routes Herb
+
+//Routes Colaboradores
+Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/colaborador/entradaColaboradorCadastro',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'formEntrada'])->name('formEntrada');
 Route::get('/colaboradores',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'index'])->name('todosColaboradores');
@@ -56,6 +67,23 @@ Route::post('/cadastroConteudo', [App\Http\Controllers\BaseConhecimentoControlle
 Route::get('/conteudos',[App\Http\Controllers\BaseConhecimentoController::class, 'index'])->name('todosConteudos');
 Route::get('/conteudo/{id}/verConteudo',[App\Http\Controllers\BaseConhecimentoController::class, 'show'])->name('verConteudo');
 
+// chamados
+Route::get('suporte/abrirChamado',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamado'])->name('chamados');
+Route::post('/criarChamadoSaidaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'store'])->name('criarChamadoSaidaDeColaborador');
+Route::post('/criarChamadoEntradaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'storeEntrada'])->name('entrada');
+Route::get('suporte/abrirChamado/entradaDeColaborador',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoEntradaDeColaborador'])->name('entradadecolaborador');
+Route::post('/criarChamadoSuporte', [App\Http\Controllers\SaidaDeColaboradorController::class, 'storeChamado'])->name('criar');
+Route::get('suporte',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoSuporte'])->name('suportecolaborador');
+Route::get('chamados',[App\Http\Controllers\SaidaDeColaboradorController::class, 'index'])->name('todosChamados');
+Route::get('/chamados/{id}/verChamado',[App\Http\Controllers\SaidaDeColaboradorController::class, 'show'])->name('verChamado');
+Route::get('/chamados/{id}/attChamados', [App\Http\Controllers\SaidaDeColaboradorController::class, 'edit'])->name('atualizarChamado');
+Route::put('/attChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'update'])->name('updateChamado');
+Route::get('/home', [App\Http\Controllers\SaidaDeColaboradorController::class, 'home'])->name('home');
+
+
+
+
+
 //Routes dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
@@ -64,4 +92,4 @@ Route::get('colaboradores-export', [App\Http\Controllers\EntradaColaboradorCadas
 Route::post('colaboradores-import',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'import'])->name('users.import');
 
 //Export pcs
-Route::get('pcs-export', [App\Http\Controllers\PcController::class, 'export'])->name('pcs.export');
+Route::get('pcs-export', [App\Http\Controllers\PcController::class, 'export'])->name('pcs.export');});
