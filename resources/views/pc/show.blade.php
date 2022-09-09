@@ -9,7 +9,7 @@
                                     <li class="list-group-item">RAM: {{$verDados->ram}}</li>
                                     <li class="list-group-item">Memoria: {{$verDados->memoria}}</li>
                                     <li class="list-group-item">Processador: {{$verDados->processador}}</li>
-                                    <li class="list-group-item">Preço:R$ {{$verDados->preco}}</li>
+                                    <li class="list-group-item">Preço: R${{$verDados->preco}}</li>
                                     <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>   
                                         </ul>
                                          

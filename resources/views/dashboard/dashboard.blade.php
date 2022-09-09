@@ -16,7 +16,7 @@
                 <div class="row mt-5">
                 <div class="col-sm">
 
-                <div class="card shadow-lg p-2 mb-5 bg-body rounded">
+                <div class="card shadow p-2 mb-5 bg-body rounded">
                 <h5 style='text-align:center;'>Valor de inventario PC</h5>
                 <div class="card-body">
                 <button style="text-align:right;" class="btn btn-secondary" type="button" onclick="Mudarestado('minhaDiv')"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="col-sm">
-                <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="card shadow p-3 mb-5 bg-body rounded">
                 <h5 style='text-align:center;'>Total PC</h5>
                 <div class="card-body">
                 <p class="card-text" style='text-align:right;font-weight: bold;' >{{$qtnPc}}</p>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="col-sm">
-                <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="card shadow p-3 mb-5 bg-body rounded">
                 <h5 style='text-align:center;'>Colaboradores</h5>
                 <div class="card-body">
                 <p class="card-text" style='text-align:right;font-weight: bold;'>{{$colaboradores}}</p>
@@ -94,6 +94,9 @@
                 });
                 </script>
                 </div>
+                
+
+
                 <table class="table">
 
                 

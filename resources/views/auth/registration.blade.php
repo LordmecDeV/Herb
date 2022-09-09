@@ -7,6 +7,7 @@
 <!--===============================================================================================-->	
 <!--===============================================================================================-->
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
 
 /*//////////////////////////////////////////////////////////////////
@@ -3378,14 +3379,22 @@ background-image: linear-gradient(160deg, #4F4F4F 0%, #4F4F4F 100%);
 	<div class="limiter" style="">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="{{ route('login.post') }}" method="POST">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="{{  route('register.post') }}" method="POST">
                           @csrf
 					<span class="login100-form-title">
-					<a href="https://imgbb.com/"><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" alt="logo-zarpo-320x132-transparente" border="0"></a>
+                    <a href="https://imgbb.com/"><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" alt="logo-zarpo-320x132-transparente" border="0"></a>
 					</span>
 
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+						<input class="input100" type="text" name="name" required autofocus placeholder="Nome">
+                        @if ($errors->has('name'))
+                                      <span class="text-danger">{{ $errors->first('name') }}</span>
+                        @endif
+						<span class="focus-input100"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<input class="input100" type="text" name="email" required autofocus placeholder="master@zarpo.com.br">
+						<input class="input100" type="text" name="email" required placeholder="seuemail@zarpo.com.br">
                         @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
@@ -3412,17 +3421,17 @@ background-image: linear-gradient(160deg, #4F4F4F 0%, #4F4F4F 100%);
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Entrar
+							Criar conta
 						</button>
 					</div>
 
 					<div class="flex-col-c p-t-17 p-b-40">
 						<span class="txt1 p-b-9">
-							Ainda não tem uma conta?
+							Já tem uma conta?
 						</span>
 
-						<a href="/registration" class="txt3">
-							Registrar-se
+						<a href="/login" class="txt3">
+							Login
 						</a>
 					</div>
 				</form>
