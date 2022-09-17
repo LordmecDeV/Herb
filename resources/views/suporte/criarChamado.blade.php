@@ -48,7 +48,7 @@
             <input type="date" class="form-control" name="data_do_ultimo_dia_do_colaborador">
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-12">
         <label for="inputState" class="form-label">Aviso prévio trabalhado:</label>
             <select id="inputState" name="aviso_previo" class="form-select">
             <option selected>Sim</option>
@@ -56,12 +56,12 @@
             </select>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
         <label for="formFile" class="form-label">Anexo:</label>
         <input class="form-control" type="file" name="file_path">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
         <label for="inputState" class="form-label">Tipo de desligamento:</label>
         <select id="inputState" name="tipo_desligamento"class="form-select">
             <option selected>Voluntário (pedido de demissão)</option>

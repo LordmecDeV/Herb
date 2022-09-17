@@ -13,7 +13,7 @@
             <h3 class="mb-3" style="text-align:center">Suporte</h3>
 
         <div class="col-md-12">
-            <label f class="form-label">Problema:</label>
+            <label f class="form-label">Qual o problema?</label>
             <input type="text" class="form-control" placeholder="Ex: Reset de senha, notebook não liga..." name="problema">
         </div>
 

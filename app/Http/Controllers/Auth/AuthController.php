@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
 use Hash;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
   
 class AuthController extends Controller
 {
@@ -45,7 +47,7 @@ class AuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('home')
                         ->withSuccess('You have Successfully loggedin');
         }
   
@@ -110,4 +112,24 @@ class AuthController extends Controller
   
         return Redirect('login');
     }
+
+    public function allUser(Request $request){
+
+        $qtd = $request['qtd'] ?: 6;
+        $page = $request['page'] ?: 1;
+        $buscar = $request['buscar'];
+        Paginator::currentPageResolver(function () use ($page){
+            return $page;
+        });
+        if($buscar){
+            $verTodos = DB::table('users')->where('name', '=', $buscar)->paginate($qtd);
+        }else{
+            $verTodos = DB::table('users')->paginate($qtd);
+        }
+
+        
+        
+        return view('user.allUsers', compact('verTodos'));
+    }
+
 }

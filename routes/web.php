@@ -35,6 +35,7 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('todosUsuarios', [AuthController::class, 'allUser'])->name('all');
 
 //Routes Herb
 
@@ -79,6 +80,8 @@ Route::get('/chamados/{id}/verChamado',[App\Http\Controllers\SaidaDeColaboradorC
 Route::get('/chamados/{id}/attChamados', [App\Http\Controllers\SaidaDeColaboradorController::class, 'edit'])->name('atualizarChamado');
 Route::put('/attChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'update'])->name('updateChamado');
 Route::get('/home', [App\Http\Controllers\SaidaDeColaboradorController::class, 'home'])->name('home');
+Route::get('/meusChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'indexUser'])->name('indexUser');
+Route::get('/dadosChamado/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'showChamadoUser'])->name('showUser');
 
 
 

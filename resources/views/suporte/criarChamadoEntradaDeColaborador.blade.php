@@ -43,12 +43,12 @@
             <input type="text" class="form-control" placeholder="Magento, Zio, MicroSip..." name="sistemas">
         </div>
 
-        <div class="col-4">
+        <div class="col-12">
             <label class="form-label">Data de entrada:</label>
             <input type="date" class="form-control" name="data_de_entrada">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
             <label for="" class="form-label">VPN:</label>
             <select id="inputState" name="vpn" class="form-select">
             <option selected>Sim</option>
@@ -56,7 +56,7 @@
             </select>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
         <label for="inputState" class="form-label">Grupo de email:</label>
         <input type="text" class="form-control" placeholder="Ex: gestores, tech table..." name="grupos_email">
         </div>
