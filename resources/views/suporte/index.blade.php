@@ -30,7 +30,7 @@
         </div>
         @elseif($dadoschamado->status === 'Em andamento')
         <div class="col-sm-6">
-            <div class="card mt-3 border-warning">
+            <div class="card mt-3 border-secondary" >
             <div class="card-body">
                 <h5 class="card-title">{{$dadoschamado->titulo}} - CH{{$dadoschamado->id}}</h5>
                 <p class="card-text">Status: {{$dadoschamado->status}}</p>
@@ -48,7 +48,7 @@
         </div>
         @else
         <div class="col-sm-6">
-            <div class="card mt-3 border-success">
+            <div class="card mt-3 border-primary" >
             <div class="card-body">
                 <h5 class="card-title">{{$dadoschamado->titulo}} - CH{{$dadoschamado->id}}</h5>
                 <p class="card-text">Status: {{$dadoschamado->status}}</p>

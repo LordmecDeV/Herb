@@ -14,7 +14,7 @@
     <br>
     <p>Aviso prévio: {{{$saidaDecolaborador['aviso_previo']}}}</p>
     <br>
-    <p>Tipo de desligamento: {{{$saidaDecolaborador['tipo_delisgamento']}}}</p>
+    <p>Tipo de desligamento: {{{$saidaDecolaborador['tipo_desligamento']}}}</p>
     <br>
     <p>Departamento: {{{$saidaDecolaborador['dpto']}}}</p>
     <br>

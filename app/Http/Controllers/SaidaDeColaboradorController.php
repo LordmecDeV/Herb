@@ -53,6 +53,7 @@ class SaidaDeColaboradorController extends Controller
             \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
         }else{
             SaidaDeColaborador::create($abrirChamado);
+            $saidaDecolaborador = $abrirChamado;
             \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
         }
 
@@ -64,10 +65,35 @@ class SaidaDeColaboradorController extends Controller
         return view('suporte.criarChamadoSuporte');
     }
 
+    public function indexUser($id, Request $request) 
+    {
+        $user = User::find($id,);
+        $todosChamados = SaidaDeColaborador::where('colaboradorID', '=', $user->email)->get();
+        $qtd = $request['qtd'] ?: 4;
+        $page = $request['page'] ?: 1;
+        $buscar = $request['buscar'];
+        Paginator::currentPageResolver(function () use ($page){
+            return $page;
+        });
+        if($todosChamados){
+            $verTodos = DB::table('saida_de_colaborador')->where('colaboradorID', '=', $user->email)->orderBy('created_at', 'desc')->paginate($qtd);
+        }else{
+            $verTodos = DB::table('saida_de_colaborador')->where('colaboradorID', '=', $user->email)->orderBy('created_at', 'desc')->paginate($qtd);
+        }
+        return view('suporte.indexUser', compact('todosChamados', 'verTodos'));
+    }
+
     public function home() 
     {
         return view('suporte.menu');
     }
+
+    public function showChamadoUser($id) 
+    {
+        $verDados = SaidaDeColaborador::find($id);
+        return view('suporte.showUser', compact('verDados'));
+    }
+
 
     public function storeChamado(Request $request)
     {
@@ -89,9 +115,9 @@ class SaidaDeColaboradorController extends Controller
             return $page;
         });
         if($buscar){
-            $verTodos = DB::table('saida_de_colaborador')->where('nome_do_colaborador', '=', $buscar)->paginate($qtd);
+            $verTodos = DB::table('saida_de_colaborador')->where('nome_do_colaborador', '=', $buscar)->orderBy('created_at', 'desc')->paginate($qtd);
         }else{
-            $verTodos = DB::table('saida_de_colaborador')->paginate($qtd);
+            $verTodos = DB::table('saida_de_colaborador')->orderBy('created_at', 'desc')->paginate($qtd);
         }
 
         
