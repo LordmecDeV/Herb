@@ -28,7 +28,7 @@
                     labels: ['Manutenção', 'Disponivel', 'Em uso'],
                     datasets: [{
                         label: 'Estoque pc',
-                        data: [{{$statuspc}}, {{$statuspcEmUso}}, {{$statuspcManutencao}} ],
+                        data: [{{$statuspcManutencao}}, {{$statuspc}}, {{$statuspcEmUso}} ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -88,7 +88,7 @@
                     labels: ['Criado', 'Concluido', 'Em andamento'],
                     datasets: [{
                         label: 'Status do chamado',
-                        data: [{{$statusChamado}}, {{$statusEmAndamento}}, {{$statusConcluido}}],
+                        data: [{{$statusChamado}}, {{$statusConcluido}}, {{$statusEmAndamento}}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
