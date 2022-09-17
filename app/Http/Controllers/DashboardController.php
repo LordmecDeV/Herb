@@ -18,9 +18,16 @@ class DashboardController extends Controller
         $qtnPc = DB::table('pc')->select('id')->count();
         $pcColaborador = DB::table('pc')->select('id_do_pc', 'status')->where('status', '=', 'Disponivel')->get();
         $total_preco_pc = $pc->sum('preco');
+        $statuspc = DB::table('pc')->select('status')->where('status', '=', 'Disponivel')->count();
+        $statuspcEmUso = DB::table('pc')->select('status')->where('status', '=', 'Em uso')->count();
+        $statuspcManutencao = DB::table('pc')->select('status')->where('status', '=', 'Manutenção')->count();
         
+        $statusChamado = DB::table('saida_de_colaborador')->select('status')->where('status', '=', 'Criado')->count();
+        $statusEmAndamento = DB::table('saida_de_colaborador')->select('status')->where('status', '=', 'Em andamento')->count();
+        $statusConcluido = DB::table('saida_de_colaborador')->select('status')->where('status', '=', 'Concluido')->count();
 
-        return view('dashboard.dashboard', compact('total_preco_pc', 'colaboradores', 'pcColaborador', 'qtnPc'));
+
+        return view('dashboard.dashboard', compact('statusChamado','statusEmAndamento','statusConcluido','total_preco_pc','statuspcEmUso','statuspcManutencao','colaboradores', 'pcColaborador', 'statuspc', 'qtnPc'));
     }
 
 }

@@ -21,7 +21,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('colaboradores.EntradaColaboradorCadastro');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -36,7 +36,8 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('todosUsuarios', [AuthController::class, 'allUser'])->name('all');
-
+Route::get('/Usuario/{id}/deletarUsuario', [AuthController::class, 'delete'])->name('deletarUsuario');
+Route::delete('/deleteUser/{id}', [AuthController::class, 'destroy'])->name('destroyUser'); 
 //Routes Herb
 
 //Routes Colaboradores

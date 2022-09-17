@@ -242,7 +242,7 @@ p {
   border-bottom: 8px solid #fff;
 }
 
-a {
+ #id{
   position: relative;
   color: #fff;
   transition: all 200ms linear;
@@ -446,9 +446,9 @@ a .uil {
           <input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
           <label class="for-dropdown" for="dropdown">{{ Auth::user()->name }}<i class="uil uil-arrow-down"></i></label>
           <div class="section-dropdown"> 
-            <a href="{{ route('all', ['id' => Auth::user()->id]) }}">Todos usuarios<i class="uil uil-arrow-right"></i></a>
-            <a href="{{route('todosConteudos')}}">Base do conhecimento<i class="uil uil-arrow-right"></i></a>
-            <a href="{{route('logout')}}">Logout<i class="uil uil-arrow-right"></i></a>
+            <a href="{{ route('all') }}" id="id">Todos usuarios<i class="uil uil-arrow-right"></i></a>
+            <a href="{{route('todosConteudos')}}" id="id">Base do conhecimento<i class="uil uil-arrow-right"></i></a>
+            <a href="{{route('logout')}}" id="id">Logout<i class="uil uil-arrow-right"></i></a>
           </div>
       </div>
         </div>

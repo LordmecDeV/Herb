@@ -132,4 +132,16 @@ class AuthController extends Controller
         return view('user.allUsers', compact('verTodos'));
     }
 
+    public function delete($id){
+        
+        $deletarDados = User::find($id);
+        return view('user.delete', compact('deletarDados'));
+        }
+        
+        public function destroy($id){
+        
+            User::find($id)->delete();
+            return redirect()->route('all');
+        }
+
 }
