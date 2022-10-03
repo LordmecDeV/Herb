@@ -1,6 +1,6 @@
 @extends('suporte.layout')
 @section('content')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
     <div class="parent">
         <div class="div1"> 
 
@@ -14,12 +14,12 @@
 
         <div class="col-md-6">
             <label f class="form-label">Nome do Colaborador:</label>
-            <input type="text" class="form-control"  name="nome_colaborador">
+            <input type="text" required class="form-control"  name="nome_colaborador">
         </div>
 
         <div class="col-md-6">
             <label for="" class="form-label">Departamento:</label>
-            <select id="inputState" name="dpto" class="form-select">
+            <select id="inputState" required name="dpto" class="form-select">
             <option selected>Aéreo</option>
             <option>Conteúdo</option>
             <option>Financeiro</option>
@@ -27,7 +27,6 @@
             <option>Marketing</option>
             <option>Novos negócios</option>
             <option>Customer Service</option>
-            <option>Sourcing</option>
             <option>Sourcing Operacional</option>
             <option>Sourcing Comercial</option>
             <option>Upload</option>
@@ -40,17 +39,17 @@
 
         <div class="col-12">
             <label for="" class="form-label">Data do pedido de demissão:</label>
-            <input type="date" class="form-control"  name="data_do_pedido_de_demissao">
+            <input type="date" required class="form-control"  name="data_do_pedido_de_demissao">
         </div>
 
         <div class="col-12">
             <label for="" class="form-label">Data do ultimo dia do colaborador:</label>
-            <input type="date" class="form-control" name="data_do_ultimo_dia_do_colaborador">
+            <input type="date" required class="form-control" name="data_do_ultimo_dia_do_colaborador">
         </div>
 
         <div class="col-md-12">
         <label for="inputState" class="form-label">Aviso prévio trabalhado:</label>
-            <select id="inputState" name="aviso_previo" class="form-select">
+            <select id="inputState" required name="aviso_previo" class="form-select">
             <option selected>Sim</option>
             <option>Não</option>
             </select>
@@ -58,12 +57,12 @@
 
         <div class="col-md-12">
         <label for="formFile" class="form-label">Anexo:</label>
-        <input class="form-control" type="file" name="file_path">
+        <input class="form-control" required type="file" name="file_path">
         </div>
 
         <div class="col-md-12">
         <label for="inputState" class="form-label">Tipo de desligamento:</label>
-        <select id="inputState" name="tipo_desligamento"class="form-select">
+        <select id="inputState" required name="tipo_desligamento"class="form-select">
             <option selected>Voluntário (pedido de demissão)</option>
             <option>Involuntário</option>
             </select>
@@ -71,7 +70,7 @@
 
         <div class="col-12">
 
-            <button type="submit" class="btn btn-primary">Abrir chamado</button>
+            <button type="submit" class="btn btn-primary" id="mensagem-sucesso">Abrir chamado</button>
             
         </div>
 

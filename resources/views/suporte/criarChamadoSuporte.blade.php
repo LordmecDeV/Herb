@@ -14,12 +14,12 @@
 
         <div class="col-md-12">
             <label f class="form-label">Qual o problema?</label>
-            <input type="text" class="form-control" placeholder="Ex: Reset de senha, notebook não liga..." name="problema">
+            <input type="text" class="form-control" required placeholder="Ex: Reset de senha, notebook não liga..." name="problema">
         </div>
 
         <div class="col-md-12">
             <label for="" class="form-label">Departamento:</label>
-            <select id="inputState" name="dpto" class="form-select">
+            <select required id="inputState" name="dpto" class="form-select">
             <option selected>Aéreo</option>
             <option>Conteúdo</option>
             <option>Financeiro</option>
@@ -40,7 +40,7 @@
 
         <div class="col-md-12">
             <label for="" class="form-label">Prioridade:</label>
-            <select id="inputState" name="prioridade" class="form-select">
+            <select required id="inputState" name="prioridade" class="form-select">
             <option>Baixa</option>
             <option>Media</option>
             <option>Alta</option>
@@ -49,7 +49,7 @@
 
 
         <div class="form-floating">
-        <textarea class="form-control" placeholder="Resuma seu problema" id="floatingTextarea2" name="observacao" style="height: 100px"></textarea>
+        <textarea required class="form-control" placeholder="Resuma seu problema" id="floatingTextarea2" name="observacao" style="height: 100px"></textarea>
         <label for="floatingTextarea2">Resuma seu problema</label>
         </div>
 

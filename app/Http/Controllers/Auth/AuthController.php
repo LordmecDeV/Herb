@@ -115,7 +115,7 @@ class AuthController extends Controller
 
     public function allUser(Request $request){
 
-        $qtd = $request['qtd'] ?: 6;
+        $qtd = $request['qtd'] ?: 8;
         $page = $request['page'] ?: 1;
         $buscar = $request['buscar'];
         Paginator::currentPageResolver(function () use ($page){
@@ -143,5 +143,24 @@ class AuthController extends Controller
             User::find($id)->delete();
             return redirect()->route('all');
         }
+
+    public function store(Request $request)
+    {
+        
+          User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'cargo' => $request['cargo']
+          ]);
+          return redirect()->route('all');
+    
+    }
+            
+    public function criarUsuario(){
+            
+        return view('user.create');
+    }
+    
 
 }
