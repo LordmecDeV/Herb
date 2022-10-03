@@ -12,6 +12,11 @@ use App\Mail\saidaDeColaboradormail;
 use App\Mail\updateChamadoMail;
 use App\Mail\entradaDeColaboradorChamadoMail;
 use App\Mail\SuporteMail;
+use App\Mail\saidaDeColaboradorAvisosmail;
+use App\Mail\feriasMail;
+use App\Mail\beneficioMail;
+use App\Mail\movimentacaoColaboradorMail;
+use App\Mail\admissaoMail;
 
 class SaidaDeColaboradorController extends Controller
 {
@@ -50,10 +55,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $saidaDecolaborador = $abrirChamado;
+            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador));
             \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
         }else{
             SaidaDeColaborador::create($abrirChamado);
             $saidaDecolaborador = $abrirChamado;
+            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador));
             \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
         }
 
@@ -63,6 +70,37 @@ class SaidaDeColaboradorController extends Controller
     public function abrirChamadoSuporte() 
     {
         return view('suporte.criarChamadoSuporte');
+    }
+
+    public function chamadoMovimentacaoColaborador() 
+    {
+        return view('suporte.movimentacaoColaborador');
+    }
+
+    public function abrirChamadoMovimentacao(Request $request) 
+    {
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $movimentacao = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao));
+        }else{
+            $movimentacao = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados');
     }
 
     public function indexUser($id, Request $request) 
@@ -86,6 +124,105 @@ class SaidaDeColaboradorController extends Controller
     public function home() 
     {
         return view('suporte.menu');
+    }
+
+    public function homeDpto() 
+    {
+        return view('suporte.menuRecursosHumanos');
+    }
+
+    public function ferias() 
+    {
+        return view('suporte.feriasChamado');
+    }
+
+    public function beneficios() 
+    {
+        return view('suporte.beneficios');
+    }
+
+    public function entradaDeColaboradorMenu() 
+    {
+        return view('suporte.entradaDeColaboradorMenu');
+    }
+
+    public function abrirChamadoAdmissao(Request $request) 
+    { 
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $admissao = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao));
+        }else{
+            $admissao = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamadoEntradaDeColaborador'); return view('suporte.beneficios');
+    }
+
+    public function abrirChamadoBeneficios(Request $request) 
+    { 
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $beneficio = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio));
+        }else{
+            $beneficio = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados'); return view('suporte.beneficios');
+    }
+
+    public function abrirChamadoFerias(Request $request) 
+    {
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $feriasMail = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail));
+            
+        }else{
+            $feriasMail = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados');
     }
 
     public function showChamadoUser($id) 

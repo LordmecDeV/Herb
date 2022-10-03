@@ -35,14 +35,12 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('todosUsuarios', [AuthController::class, 'allUser'])->name('all');
-Route::get('/Usuario/{id}/deletarUsuario', [AuthController::class, 'delete'])->name('deletarUsuario');
-Route::delete('/deleteUser/{id}', [AuthController::class, 'destroy'])->name('destroyUser'); 
+  
 //Routes Herb
+
 
 //Routes Colaboradores
 Route::group(['middleware' => 'auth'], function () {
-
 Route::get('/colaborador/entradaColaboradorCadastro',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'formEntrada'])->name('formEntrada');
 Route::get('/colaboradores',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'index'])->name('todosColaboradores');
 Route::get('/colaboradores/{id}/verDados',[App\Http\Controllers\EntradaColaboradorCadastroController::class, 'show'])->name('verDadosColaborador');
@@ -51,6 +49,16 @@ Route::post('/entradaColaboradorCadastro', [App\Http\Controllers\EntradaColabora
 Route::get('/colaborador/{id}/attColaborador', [App\Http\Controllers\EntradaColaboradorCadastroController::class, 'edit'])->name('atualizarColaborador');
 Route::put('/atualizarColaborador/{id}', [App\Http\Controllers\EntradaColaboradorCadastroController::class, 'update'])->name('updateColaborador');
 Route::delete('/deleteColaborador/{id}', [App\Http\Controllers\EntradaColaboradorCadastroController::class, 'destroy'])->name('destroyColaborador'); 
+
+
+// Routes controle de usuarios
+
+Route::get('todosUsuarios', [AuthController::class, 'allUser'])->name('all');
+Route::get('/Usuario/{id}/deletarUsuario', [AuthController::class, 'delete'])->name('deletarUsuario');
+Route::delete('/deleteUser/{id}', [AuthController::class, 'destroy'])->name('destroyUser');
+Route::get('/criarUsuario', [AuthController::class, 'criarUsuario'])->name('criarUsuario');
+Route::post('/criarColaborador', [AuthController::class, 'store'])->name('criarColaborador');
+
 
 //Routes Pc
 
@@ -69,7 +77,7 @@ Route::post('/cadastroConteudo', [App\Http\Controllers\BaseConhecimentoControlle
 Route::get('/conteudos',[App\Http\Controllers\BaseConhecimentoController::class, 'index'])->name('todosConteudos');
 Route::get('/conteudo/{id}/verConteudo',[App\Http\Controllers\BaseConhecimentoController::class, 'show'])->name('verConteudo');
 
-// chamados
+//Routes chamados
 Route::get('suporte/abrirChamado',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamado'])->name('chamados');
 Route::post('/criarChamadoSaidaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'store'])->name('criarChamadoSaidaDeColaborador');
 Route::post('/criarChamadoEntradaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'storeEntrada'])->name('entrada');
@@ -83,10 +91,16 @@ Route::put('/attChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorControll
 Route::get('/home', [App\Http\Controllers\SaidaDeColaboradorController::class, 'home'])->name('home');
 Route::get('/meusChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'indexUser'])->name('indexUser');
 Route::get('/dadosChamado/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'showChamadoUser'])->name('showUser');
-
-
-
-
+Route::get('/chamadoMovimentacaoColaborador',[App\Http\Controllers\SaidaDeColaboradorController::class, 'chamadoMovimentacaoColaborador'])->name('movimentacao');
+Route::post('/criarChamadoMovimentacaoColaborador',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoMovimentacao'])->name('movimentacaoColaborador');
+Route::get('/homeDpto', [App\Http\Controllers\SaidaDeColaboradorController::class, 'homeDpto'])->name('homeDpto');
+Route::get('/feriasChamado', [App\Http\Controllers\SaidaDeColaboradorController::class, 'ferias'])->name('feriasChamado');
+Route::post('/criarChamadoFerias',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoFerias'])->name('abrirChamadoFerias');
+Route::get('/homeDpto', [App\Http\Controllers\SaidaDeColaboradorController::class, 'homeDpto'])->name('homeDpto');
+Route::post('/abrirBeneficios',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoBeneficios'])->name('beneficios');
+Route::get('/beneficios', [App\Http\Controllers\SaidaDeColaboradorController::class, 'beneficios'])->name('Abrirbeneficios');
+Route::get('/chamadoEntradaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'entradaDeColaboradorMenu'])->name('entradaDeColaboradorMenu');
+Route::post('/abrirChamadoAdmissao',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoAdmissao'])->name('admissao');
 
 //Routes dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

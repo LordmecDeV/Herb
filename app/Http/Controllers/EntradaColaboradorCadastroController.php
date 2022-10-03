@@ -18,8 +18,6 @@ class EntradaColaboradorCadastroController extends Controller
     public function formEntrada() 
     {
         $pcColaborador = DB::table('pc')->select('id_do_pc', 'status')->where('status', '=', 'Disponivel')->get();
-        
-
         return view('colaboradores.EntradaColaboradorCadastro', compact('pcColaborador'));
     }
 
@@ -31,7 +29,7 @@ class EntradaColaboradorCadastroController extends Controller
 
         $entradaDecolaborador = $cadastroColaborador;
         
-        \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorMail($entradaDecolaborador));
+        \Mail::to(['johnny.almeida@zarpo.com.br'] )->send(new entradaDeColaboradorMail($entradaDecolaborador));
 
         return redirect('/colaboradores', );
     }
