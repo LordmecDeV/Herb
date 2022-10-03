@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-12">
-
+            <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>   
             <button type="submit" class="btn btn-primary" id="mensagem-sucesso">Abrir chamado</button>
             
         </div>

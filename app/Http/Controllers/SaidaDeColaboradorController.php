@@ -17,6 +17,9 @@ use App\Mail\feriasMail;
 use App\Mail\beneficioMail;
 use App\Mail\movimentacaoColaboradorMail;
 use App\Mail\admissaoMail;
+use App\Mail\compraMail;
+use App\Mail\reembolsoMail;
+use App\Mail\adiantamentoReembolsoMail;
 
 class SaidaDeColaboradorController extends Controller
 {
@@ -141,9 +144,24 @@ class SaidaDeColaboradorController extends Controller
         return view('suporte.beneficios');
     }
 
+    public function financeiroMenu() 
+    {
+        return view('suporte.financeiroMenu');
+    }
+
+    public function reembolso() 
+    {
+        return view('suporte.reeembolsoChamado');
+    }
+
     public function entradaDeColaboradorMenu() 
     {
         return view('suporte.entradaDeColaboradorMenu');
+    }
+
+    public function compra() 
+    {
+        return view('suporte.criarChamadoSolicitacaoDeCompra');
     }
 
     public function abrirChamadoAdmissao(Request $request) 
@@ -169,7 +187,85 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamadoEntradaDeColaborador'); return view('suporte.beneficios');
+        return redirect('/chamadoEntradaDeColaborador'); 
+    }
+
+    public function abrirChamadoAdiantamentoReembolso(Request $request) 
+    { 
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $adiantamentoReembolso = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso));
+        }else{
+            $adiantamentoReembolso = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados');
+    }
+
+    public function abrirChamadoReembolso(Request $request) 
+    { 
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $reembolso = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso));
+        }else{
+            $reembolso = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados');
+    }
+
+    public function abrirChamadoSolicitacaoDeCompra(Request $request) 
+    { 
+        $abrirChamado = $request->all();
+        
+        
+        if ($request->hasFile('file_path')) { 
+
+            $request->validate([
+                'file_path' => 'mimes:jpeg,bmp,png' 
+            ]);
+            $imageName = time().'.'.$request->file_path->extension();
+            $request->file_path->move(public_path('imagens'), $imageName);
+            $abrirChamado['file_path'] = $imageName;
+            SaidaDeColaborador::create($abrirChamado);
+            $compras = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras));
+        }else{
+            $compras = $abrirChamado;
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras));
+            SaidaDeColaborador::create($abrirChamado);
+            
+        }
+
+        return redirect('/chamados');
     }
 
     public function abrirChamadoBeneficios(Request $request) 
@@ -195,7 +291,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados'); return view('suporte.beneficios');
+        return redirect('/chamados'); 
     }
 
     public function abrirChamadoFerias(Request $request) 

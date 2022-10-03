@@ -415,60 +415,49 @@ left: 0;
 <body>
 
             <div class="container text-center">
-            <div class="row row-cols-8" style="margin-top:100px;margin-left:px;">
+            <div class="row row-cols-1 row-cols-md-2 g-4" style="margin-top:50px;margin-left:px;margin-bottom:150px;">
                 <div class="col">
-                <div class="card w-80 mb-3 shadow-lg p-3  bg-body rounded" style="">
-                <img src="{{ asset('imagens/undraw_Lives_matter_38lv.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <div class="card w-80 mb-3 shadow p-3  bg-body rounded" style="">
+                <img src="{{ asset('imagens/undraw_Successful_purchase_re_mpig.png')}}" style="height:;" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">Recursos Humanos</h5>
+                <h5 class="card-title">Solicitação de compra</h5>
                 <p class="card-text"></p>
-                <a href="{{route('homeDpto')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('solicitacaoDeCompra')}}" class="btn btn-primary">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
-
-                <div class="col">
-                <div class="card w-80 shadow-lg p-3  bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Pair_programming_re_or4x.png')}}" style="height:350px;max-width:500px;" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">Suporte Tecnico</h5>
-                <p class="card-text"></p>
-                <a href="{{route('suportecolaborador')}}" class="btn btn-primary">Abrir chamado</a>
-                </div>
-                </div>
-                </div>
-
 
                 <div class="col">
-                <div class="card w-80 shadow-lg p-3 bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Savings_re_eq4w.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <div class="card w-80 shadow p-3  bg-body rounded">
+                <img src="{{ asset('imagens/undraw_Credit_card_payment_re_o911.png')}}" style="height:493px;" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">Financeiro</h5>
+                <h5 class="card-title">Reembolso</h5>
                 <p class="card-text"></p>
-                <a href="{{route('financeiroMenu')}}" class="btn btn-primary">Abrir chamado</a>
-
-                </div>
-                </div>
+                <a href="{{route('reembolso')}}" class="btn btn-primary">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
 
-</body>
+
+        
+
+                </div>
+                </div>
+                </div>
+             
+
+
+               
+
+               
+
+                </div>
+                </div>
 
                 
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-light" style="position:fixed;bottom:0;letf:0;width:100vw;">
-                    <p class="col-md-4 mb-0 text-muted">© 2022 Zarpo</p>
+</body>
 
-                    <a href="https://imgbb.com/"><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:50px;" border="0"></a>
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    </a>
-
-                    <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="{{ route('indexUser', ['id' => Auth::user()->id]) }}" class="nav-link px-2 text-muted">Meus chamados</a></li>
-                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted">Abrir um chamado</a></li>
-                    <li class="nav-item"><a href="{{route('logout')}}" class="nav-link px-2 text-muted">Logout</a></li>
-                    </ul>
-                </footer>
+            
               
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

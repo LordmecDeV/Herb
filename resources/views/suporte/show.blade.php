@@ -94,6 +94,62 @@
                                     <li class="list-group-item">Observação: {{$verDados->observacao}}</li>
                                     <a href="{{ url()->previous() }}" class="btn btn-danger mt-4">Voltar</a>   
                                     </ul>
+@elseif($verDados['titulo'] === 'Adiantamento de reembolso')
+                                    <ul class="list-group list-group-flush shadow p-3 mb-4 bg-body rounded mt-3">
+                                    <h3 style="text-align:center;">Adiantamento de reembolso - CH{{$verDados->id}}</h3>
+                                    <li class="list-group-item">Tipo de chamado: {{$verDados->titulo}}</li>
+                                    <li class="list-group-item">Nome do colaborador: {{$verDados->nome_colaborador}}</li>    
+                                    <li class="list-group-item">ID: {{$verDados->id}}</li>
+                                    <li class="list-group-item">Departamento: {{$verDados->dpto}}</li>
+                                    <li class="list-group-item">Valor total: {{$verDados->valor_total}}</li>
+                                    <li class="list-group-item">Tipo de pagamento: {{$verDados->tipo_pagamento}}</li>
+                                    <li class="list-group-item">Informações de transferência:<br>
+                                     Banco: {{$verDados->banco}}<br>
+                                     Favorecido: {{$verDados->favorecido}}<br>
+                                     Tipo de conta: {{$verDados->tipo_conta}}<br>
+                                     Agência: {{$verDados->agencia}}<br> 
+                                     Numero de conta: {{$verDados->conta}}<br>
+                                     CPF ou CNPJ: {{$verDados->cpf_cnpj}}<br></li>
+                                    <li class="list-group-item">Anexo:<img src="{{ asset('imagens/'.$verDados->file_path) }}" class=" img-thumbnail rounded float-end zoom" style=""></li>
+                                    <li class="list-group-item">Observação: {{$verDados->observacao}}</li>
+                                    <a href="{{ url()->previous() }}" class="btn btn-danger mt-4">Voltar</a>   
+                                    </ul>
+@elseif($verDados['titulo'] === 'Reembolso')
+                                    <ul class="list-group list-group-flush shadow p-3 mb-4 bg-body rounded mt-3">
+                                    <h3 style="text-align:center;">Reembolso- CH{{$verDados->id}}</h3>
+                                    <li class="list-group-item">Tipo de chamado: {{$verDados->titulo}}</li>
+                                    <li class="list-group-item">Nome do colaborador: {{$verDados->nome_colaborador}}</li>    
+                                    <li class="list-group-item">ID: {{$verDados->id}}</li>
+                                    <li class="list-group-item">Departamento: {{$verDados->dpto}}</li>
+                                    <li class="list-group-item">Valor total: {{$verDados->valor_total}}</li>
+                                    <li class="list-group-item">Tipo de pagamento: {{$verDados->tipo_pagamento}}</li>
+                                    <li class="list-group-item">Informações de transferência:<br>
+                                     Banco: {{$verDados->banco}}<br>
+                                     Favorecido: {{$verDados->favorecido}}<br>
+                                     Tipo de conta: {{$verDados->tipo_conta}}<br>
+                                     Agência: {{$verDados->agencia}}<br> 
+                                     Numero de conta: {{$verDados->conta}}<br>
+                                     CPF ou CNPJ: {{$verDados->cpf_cnpj}}<br></li>
+                                    <li class="list-group-item">Anexo:<img src="{{ asset('imagens/'.$verDados->file_path) }}" class=" img-thumbnail rounded float-end zoom" style=""></li>
+                                    <li class="list-group-item">Observação: {{$verDados->observacao}}</li>
+                                    <a href="{{ url()->previous() }}" class="btn btn-danger mt-4">Voltar</a>   
+                                    </ul>
+@elseif($verDados['titulo'] === 'Solicitação de compra')
+                                    <ul class="list-group list-group-flush shadow p-3 mb-4 bg-body rounded mt-3">
+                                    <h3 style="text-align:center;">Solicitação de Compra - CH{{$verDados->id}}</h3>
+                                    <li class="list-group-item">Tipo de chamado: {{$verDados->titulo}}</li>
+                                    <li class="list-group-item">Nome do colaborador: {{$verDados->nome_colaborador}}</li>    
+                                    <li class="list-group-item">ID: {{$verDados->id}}</li>
+                                    <li class="list-group-item">Departamento: {{$verDados->dpto}}</li>
+                                    <li class="list-group-item">Produto: {{$verDados->produto}}</li>
+                                    <li class="list-group-item">Valor unitario: {{$verDados->valor_unitario}}</li>
+                                    <li class="list-group-item">Quantidade: {{$verDados->quantidade}}</li>
+                                    <li class="list-group-item">Nivel de urgência: {{$verDados->urgencia}}</li>
+                                    <li class="list-group-item">Finalidade/Objetivo: {{$verDados->finalidade}}</li>
+                                    <li class="list-group-item">Anexo:<img src="{{ asset('imagens/'.$verDados->file_path) }}" class=" img-thumbnail rounded float-end zoom" style=""></li>
+                                    <li class="list-group-item">Observação: {{$verDados->observacao}}</li>
+                                    <a href="{{ url()->previous() }}" class="btn btn-danger mt-4">Voltar</a>   
+                                    </ul>
 @else
                                     <ul class="list-group list-group-flush shadow p-3 mb-4 bg-body rounded mt-3">
                                     <h3 style="text-align:center;">Suporte - CH{{$verDados->id}}</h3>
