@@ -101,6 +101,12 @@ Route::post('/abrirBeneficios',[App\Http\Controllers\SaidaDeColaboradorControlle
 Route::get('/beneficios', [App\Http\Controllers\SaidaDeColaboradorController::class, 'beneficios'])->name('Abrirbeneficios');
 Route::get('/chamadoEntradaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'entradaDeColaboradorMenu'])->name('entradaDeColaboradorMenu');
 Route::post('/abrirChamadoAdmissao',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoAdmissao'])->name('admissao');
+Route::get('/chamadoFinanceiro', [App\Http\Controllers\SaidaDeColaboradorController::class, 'financeiroMenu'])->name('financeiroMenu');
+Route::get('/chamadoReembolso', [App\Http\Controllers\SaidaDeColaboradorController::class, 'reembolso'])->name('reembolso');
+Route::post('/abrirChamadoAdiantamentoReembolso',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoAdiantamentoReembolso'])->name('adiantamentoReembolso');
+Route::post('/abrirChamadoReembolso',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoReembolso'])->name('chamadoReembolso');
+Route::get('/chamadoSolicitacaoDeCompra', [App\Http\Controllers\SaidaDeColaboradorController::class, 'compra'])->name('solicitacaoDeCompra');
+Route::post('/abrirChamadoSolicitacaoDeCompra',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoSolicitacaoDeCompra'])->name('compra');
 
 //Routes dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

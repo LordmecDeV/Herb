@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-6">
-            
+            <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>   
             <button type="submit" class="btn btn-primary">Abrir chamado</button>
             
         </div>

@@ -54,6 +54,20 @@ return new class extends Migration
             $table->string('telefone')->nullable();
             $table->string('regime')->nullable();
             $table->string('horario_trabalho')->nullable();
+            $table->string('pix')->nullable();
+            $table->string('favorecido')->nullable();
+            $table->string('banco')->nullable();
+            $table->string('tipo_conta')->nullable();
+            $table->string('agencia')->nullable();
+            $table->string('conta')->nullable();
+            $table->string('cpf_cnpj')->nullable();
+            $table->string('tipo_pagamento')->nullable();
+            $table->string('valor_total')->nullable();
+            $table->string('produto')->nullable();
+            $table->string('valor_unitario')->nullable();
+            $table->string('quantidade')->nullable();
+            $table->string('urgencia')->nullable();
+            $table->string('finalidade')->nullable();
             $table->timestamps();
         });
     }
