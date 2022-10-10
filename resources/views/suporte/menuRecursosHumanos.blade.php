@@ -393,47 +393,60 @@ left: 0;
     </style>
 </head>
 
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color:#4F4F4F">
-    <a href="https://imgbb.com/"><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:40px;" border="0"></a>
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-      </a>
+<header class="p-3 mb-3 border-bottom" style="background-color:#4F4F4F">
+    <div class="container ">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:40px;" border="0"></a>
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
 
-    
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{{route('homeDpto')}}" class="nav-link px-2 link-light">Recursos Humanos</a></li>
+          <li><a href="{{route('suportecolaborador')}}" class="nav-link px-2 link-light">Suporte T.I</a></li>
+          <li><a href="{{route('financeiroMenu')}}" class="nav-link px-2 link-light">Financeiro</a></li>
+        </ul>
 
-      <div class="col-md-3 text-end m-3">
-      <div class="sec-center"> 	
-          <input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
-          <label class="for-dropdown" for="dropdown">{{ Auth::user()->name }}<i class="uil uil-arrow-down"></i></label>
-          <div class="section-dropdown"> 
-            <a href="{{ route('indexUser', ['id' => Auth::user()->id]) }}">Meus chamados<i class="uil uil-arrow-right"></i></a>
-            <a href="{{route('home')}}">Abrir um chamado<i class="uil uil-arrow-right"></i></a>
-            <a href="{{route('logout')}}">Logout<i class="uil uil-arrow-right"></i></a>
-          </div>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" style="">
+          <li><a class="dropdown-item" href="{{ route('indexUser', ['id' => Auth::user()->id]) }}">Meus chamados</a></li>
+            <li><a class="dropdown-item" href="{{route('home')}}">Abrir um chamado</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{route('logout')}}">Sign out</a></li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </div>
+  </header>
     
 <body>
 
             <div class="container text-center">
-            <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:50px;margin-left:px;margin-bottom:150px;">
+            <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:50px;margin-left:px;margin-bottom:50px;">
                 <div class="col">
                 <div class="card w-80 mb-3 shadow p-3  bg-body rounded" style="">
-                <img src="{{ asset('imagens/undraw_Synchronize_re_4irq.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <img src="{{ asset('imagens/undraw_Synchronize_re_4irq (1).png')}}" style="height:350px;" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">Movimentação de colaborador</h5>
                 <p class="card-text"></p>
-                <a href="{{route('movimentacao')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('movimentacao')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
 
                 <div class="col">
                 <div class="card w-80 shadow p-3  bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Quitting_time_re_1whp (1).png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <img src="{{ asset('imagens/undraw_Quitting_time_re_1whp (2).png')}}" style="height:350px;" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">Saída de colaborador </h5>
                 <p class="card-text"></p>
-                <a href="{{route('chamados')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('chamados')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
@@ -441,11 +454,11 @@ left: 0;
 
                 <div class="col">
                 <div class="card w-80 shadow p-3 bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Designer_re_5v95.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <img src="{{ asset('imagens/undraw_Travelers_re_y25a.png')}}" style="height:350px;" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">Entrada de colaborador</h5>
                 <p class="card-text"></p>
-                <a href="{{route('entradaDeColaboradorMenu')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('entradaDeColaboradorMenu')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
 
                 </div>
                 </div>
@@ -455,22 +468,22 @@ left: 0;
 
                 <div class="col">
                 <div class="card w-80 shadow p-3  bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Air_support_re_nybl.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <img src="{{ asset('imagens/undraw_Air_support_re_nybl (1).png')}}" style="height:350px;" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">Férias</h5>
                 <p class="card-text"></p>
-                <a href="{{route('feriasChamado')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('feriasChamado')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
 
                 <div class="col">
                 <div class="card w-80 shadow p-3  bg-body rounded">
-                <img src="{{ asset('imagens/undraw_Online_payments_re_y8f2.png')}}" style="height:350px;" class="card-img-top" alt="...">
+                <img src="{{ asset('imagens/undraw_Online_payments_re_y8f2 (1).png')}}" style="height:350px;" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">Benefícios</h5>
                 <p class="card-text"></p>
-                <a href="{{route('Abrirbeneficios')}}" class="btn btn-primary">Abrir chamado</a>
+                <a href="{{route('Abrirbeneficios')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
                 </div>
                 </div>
                 </div>
@@ -481,11 +494,22 @@ left: 0;
                 
 </body>
 
-            
+<footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top bg-light" style="">
+                    <p class="col-md-4 mb-0 text-muted">© 2022 Zarpo</p>
+
+                    <a ><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:50px;" border="0"></a>
+                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                    </a>
+
+                    <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="{{ route('indexUser', ['id' => Auth::user()->id]) }}" class="nav-link px-2 text-muted">Meus chamados</a></li>
+                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted">Abrir um chamado</a></li>
+                    <li class="nav-item"><a href="{{route('logout')}}" class="nav-link px-2 text-muted">Logout</a></li>
+                    </ul>
+                </footer>
               
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
 </html>

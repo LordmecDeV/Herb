@@ -117,7 +117,7 @@
                                     </ul>
 @elseif($verDados['titulo'] === 'Reembolso')
                                     <ul class="list-group list-group-flush shadow p-3 mb-4 bg-body rounded mt-3">
-                                    <h3 style="text-align:center;">Adiantamento de reembolso - CH{{$verDados->id}}</h3>
+                                    <h3 style="text-align:center;">Reembolso - CH{{$verDados->id}}</h3>
                                     <li class="list-group-item">Tipo de chamado: {{$verDados->titulo}}</li>
                                     <li class="list-group-item">Nome do colaborador: {{$verDados->nome_colaborador}}</li>    
                                     <li class="list-group-item">ID: {{$verDados->id}}</li>
@@ -166,5 +166,8 @@
                                     <li class="list-group-item">Atualizado: {{$verDados->updated_at}}</li>
                                     <a href="{{ url()->previous() }}" class="btn btn-danger mt-4">Voltar</a>   
                                         </ul>
+
 @endif
+</div>
+</div>
 @endsection

@@ -11,14 +11,16 @@ class adiantamentoReembolsoMail extends Mailable
 {
     use Queueable, SerializesModels;
    public $adiantamentoReembolso;
+   public $title;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($adiantamentoReembolso)
+    public function __construct($adiantamentoReembolso, $title)
     {
         $this->adiantamentoReembolso = $adiantamentoReembolso;
+        $this->title = $title;
     }
 
     /**
@@ -28,6 +30,7 @@ class adiantamentoReembolsoMail extends Mailable
      */
     public function build()
     {
+        $this->subject($this->title);
         return $this->markdown('mail.adiantamentoReembolso');
     }
 }

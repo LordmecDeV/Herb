@@ -3381,7 +3381,7 @@ background-image: linear-gradient(160deg, #4F4F4F 0%, #4F4F4F 100%);
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="{{ route('login.post') }}" method="POST">
                           @csrf
 					<span class="login100-form-title">
-					<a href="https://imgbb.com/"><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" alt="logo-zarpo-320x132-transparente" border="0"></a>
+					<a ><img src="https://i.ibb.co/305TYbS/logo-zarpo-320x132-transparente.png" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" alt="logo-zarpo-320x132-transparente" border="0"></a>
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">

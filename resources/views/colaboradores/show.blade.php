@@ -13,7 +13,7 @@
                                     <li class="list-group-item">Teclado: {{$verDados->teclado}}</li>
                                     <li class="list-group-item">Monitor: {{$verDados->monitor}}</li>
                                     <li class="list-group-item">Observação: {{$verDados->observacao}}</li>
-                                    <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>   
+                                    <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>  
                                         </ul>
                                          
 

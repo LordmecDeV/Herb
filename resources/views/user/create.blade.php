@@ -35,7 +35,7 @@
     
 
         <div class="col-12">
-
+        <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>  
             <button type="submit" class="btn btn-primary" id="mensagem-sucesso">Criar Usuário</button>
             
         </div>

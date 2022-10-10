@@ -61,9 +61,24 @@
                     <label for="floatingSelect">Monitor</label>
                     </div>
 
-                    <div class="col">
-                    <label for="departamento" class="form-label">Departamento:</label>
-                    <input type="text" require class="form-control" id="departamento" name="departamento">
+                    <div class="col-md-12">
+                        <label for="" class="form-label">Departamento:</label>
+                        <select id="inputState" name="departamento" required class="form-select">
+                        <option selected>Aéreo</option>
+                        <option>Conteúdo</option>
+                        <option>Financeiro</option>
+                        <option>Recursos Humanos</option>
+                        <option>Marketing</option>
+                        <option>Novos negócios</option>
+                        <option>Customer Service</option>
+                        <option>Sourcing Operacional</option>
+                        <option>Sourcing Comercial</option>
+                        <option>Upload</option>
+                        <option>Tech Table(P&D)</option>
+                        <option>Tech Table(I&S)</option>
+                        <option>Tech Table(BI)</option>
+                        <option>Diretoria</option>
+                        </select>
                     </div>
                     
                    
