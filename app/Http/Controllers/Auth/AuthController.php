@@ -10,6 +10,7 @@ use App\Models\User;
 use Hash;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
   
 class AuthController extends Controller
 {
@@ -113,8 +114,10 @@ class AuthController extends Controller
         return Redirect('login');
     }
 
-    public function allUser(Request $request){
+    public function allUser(Request $request)
+    {
 
+        if(Gate::allows(ability:'colaborador-view')){
         $qtd = $request['qtd'] ?: 8;
         $page = $request['page'] ?: 1;
         $buscar = $request['buscar'];
@@ -130,23 +133,33 @@ class AuthController extends Controller
         
         
         return view('user.allUsers', compact('verTodos'));
+    }else{
+        abort(code: 403, message: 'Access denied');
     }
+    }
+    
 
     public function delete($id){
-        
+        if(Gate::allows(ability:'colaborador-view')){
         $deletarDados = User::find($id);
         return view('user.delete', compact('deletarDados'));
+        }else{
+            abort(code: 403, message: 'Access denied');
+        }
         }
         
         public function destroy($id){
-        
+            if(Gate::allows(ability:'colaborador-view')){
             User::find($id)->delete();
             return redirect()->route('all');
+        }else{
+            abort(code: 403, message: 'Access denied');
+        }
         }
 
     public function store(Request $request)
     {
-        
+        if(Gate::allows(ability:'colaborador-view')){
           User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -154,12 +167,18 @@ class AuthController extends Controller
             'cargo' => $request['cargo']
           ]);
           return redirect()->route('all');
+        }else{
+            abort(code: 403, message: 'Access denied');
+        }
     
     }
             
     public function criarUsuario(){
-            
+        if(Gate::allows(ability:'colaborador-view')){
         return view('user.create');
+    }else{
+        abort(code: 403, message: 'Access denied');
+    }
     }
     
 

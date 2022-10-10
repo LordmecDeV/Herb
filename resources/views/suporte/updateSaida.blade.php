@@ -34,7 +34,7 @@
 
         <div class="col-12">  
             <button type="submit" class="btn btn-primary">Atualizar chamado</button>
-            <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>             
+            <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>            
         </div>
         </form>      
         

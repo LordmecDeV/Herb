@@ -96,7 +96,6 @@ Route::post('/criarChamadoMovimentacaoColaborador',[App\Http\Controllers\SaidaDe
 Route::get('/homeDpto', [App\Http\Controllers\SaidaDeColaboradorController::class, 'homeDpto'])->name('homeDpto');
 Route::get('/feriasChamado', [App\Http\Controllers\SaidaDeColaboradorController::class, 'ferias'])->name('feriasChamado');
 Route::post('/criarChamadoFerias',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoFerias'])->name('abrirChamadoFerias');
-Route::get('/homeDpto', [App\Http\Controllers\SaidaDeColaboradorController::class, 'homeDpto'])->name('homeDpto');
 Route::post('/abrirBeneficios',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoBeneficios'])->name('beneficios');
 Route::get('/beneficios', [App\Http\Controllers\SaidaDeColaboradorController::class, 'beneficios'])->name('Abrirbeneficios');
 Route::get('/chamadoEntradaDeColaborador', [App\Http\Controllers\SaidaDeColaboradorController::class, 'entradaDeColaboradorMenu'])->name('entradaDeColaboradorMenu');

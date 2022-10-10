@@ -11,14 +11,16 @@ class movimentacaoColaboradorMail extends Mailable
 {
     use Queueable, SerializesModels;
    public $movimentacao;
+   public $title;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($movimentacao)
+    public function __construct($movimentacao, $title)
     {
         $this->movimentacao = $movimentacao;
+        $this->title = $title;
     }
 
     /**
@@ -28,6 +30,7 @@ class movimentacaoColaboradorMail extends Mailable
      */
     public function build()
     {
+        $this->subject($this->title);
         return $this->markdown('mail.movimentacaoColaborador');
     }
 }

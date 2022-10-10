@@ -7,12 +7,13 @@ use App\Models\EntradaDeColaboradorCadastro;
 use App\Models\Pc;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-    
+        if(Gate::allows(ability:'colaborador-view')){
         $pc = DB::table('pc')->select('preco')->get();
         $colaboradores = DB::table('entrada_de_colaborador_cadastro')->select('id')->count();
         $qtnPc = DB::table('pc')->select('id')->count();
@@ -28,6 +29,9 @@ class DashboardController extends Controller
 
 
         return view('dashboard.dashboard', compact('statusChamado','statusEmAndamento','statusConcluido','total_preco_pc','statuspcEmUso','statuspcManutencao','colaboradores', 'pcColaborador', 'statuspc', 'qtnPc'));
+    }else{
+        abort(code: 403, message: 'Access denied');
+    }
     }
 
 }

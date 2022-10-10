@@ -11,14 +11,16 @@ class updateChamadoMail extends Mailable
 {
     use Queueable, SerializesModels;
    public $atualizar;
+   public $title;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($atualizar)
+    public function __construct($atualizar, $title)
     {
         $this->atualizar = $atualizar;
+        $this->title = $title;
     }
 
     /**
@@ -28,6 +30,7 @@ class updateChamadoMail extends Mailable
      */
     public function build()
     {
+        $this->subject($this->title);
         return $this->markdown('mail.atualizar');
     }
 }

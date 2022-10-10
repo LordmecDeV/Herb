@@ -20,6 +20,7 @@ use App\Mail\admissaoMail;
 use App\Mail\compraMail;
 use App\Mail\reembolsoMail;
 use App\Mail\adiantamentoReembolsoMail;
+use Illuminate\Support\Facades\Gate;
 
 class SaidaDeColaboradorController extends Controller
 {
@@ -38,7 +39,8 @@ class SaidaDeColaboradorController extends Controller
         $abrirChamadoEntrada = $request->all();
         SaidaDeColaborador::create($abrirChamadoEntrada);
         $chamadoEntrada = $abrirChamadoEntrada;
-        \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorChamadoMail($chamadoEntrada));
+        $title = "Solicitação de acessos e equipamentos";
+        \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorChamadoMail($chamadoEntrada, $title));
         return redirect('/chamados');
     }
 
@@ -58,13 +60,17 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $saidaDecolaborador = $abrirChamado;
-            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador));
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
+            $title = "Solicitação de saída de colaborador";
+            $title2 = "Aviso!!! Leia o procedimento de saida de colaborador";
+            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador, $title2));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador, $title));
         }else{
+            $title = "Solicitação de saída de colaborador";
+            $title2 = "Aviso!!! Leia o procedimento de saida de colaborador";
             SaidaDeColaborador::create($abrirChamado);
             $saidaDecolaborador = $abrirChamado;
-            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador));
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador));
+            \Mail::to($saidaDecolaborador['colaboradorID'])->send(new saidaDeColaboradorAvisosmail($saidaDecolaborador, $title2));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador, $title));
         }
 
         return redirect('/chamados');
@@ -95,10 +101,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $movimentacao = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao));
+            $title = "Solicitação de movimentação de colaborador";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao, $title));
         }else{
+            $title = "Solicitação de movimentação de colaborador";
             $movimentacao = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new movimentacaoColaboradorMail($movimentacao, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -179,15 +187,22 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $admissao = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao));
+            $chamadoEntrada = $abrirChamado;
+            $title = "Solicitação de admissão";
+            $title2 = "Acessos e equipamentos - Entrada de colaborador";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorChamadoMail($chamadoEntrada, $title2));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao, $title));
         }else{
+            $chamadoEntrada = $abrirChamado;
+            $title = "Solicitação de admissão";
             $admissao = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorChamadoMail($chamadoEntrada, $title2));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new admissaoMail($admissao, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
 
-        return redirect('/chamadoEntradaDeColaborador'); 
+        return redirect('/chamados'); 
     }
 
     public function abrirChamadoAdiantamentoReembolso(Request $request) 
@@ -205,10 +220,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $adiantamentoReembolso = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso));
+            $title = "Solicitação de ".$adiantamentoReembolso['titulo'];
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso, $title));
         }else{
+            $title = "Solicitação de ".$adiantamentoReembolso['titulo'];
             $adiantamentoReembolso = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new adiantamentoReembolsoMail($adiantamentoReembolso, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -231,10 +248,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $reembolso = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso));
+            $title = "Solicitação de reembolso";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso, $title));
         }else{
+            $title = "Solicitação de reembolso";
             $reembolso = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new reembolsoMail($reembolso, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -257,10 +276,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $compras = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras));
+            $title = "Solicitação de compra";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras, $title));
         }else{
+            $title = "Solicitação de compra";
             $compras = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new compraMail($compras, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -283,10 +304,12 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $beneficio = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio));
+            $title = "Um chamado de beneficio foi solicitado";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio, $title));
         }else{
+            $title = "Um chamado de beneficio foi solicitado";
             $beneficio = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new beneficioMail($beneficio, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -309,11 +332,13 @@ class SaidaDeColaboradorController extends Controller
             $abrirChamado['file_path'] = $imageName;
             SaidaDeColaborador::create($abrirChamado);
             $feriasMail = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail));
+            $title = "Solicitação de férias";
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail, $title));
             
         }else{
+            $title = "Solicitação de férias";
             $feriasMail = $abrirChamado;
-            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail));
+            \Mail::to('johnny.almeida@zarpo.com.br')->send(new feriasMail($feriasMail, $title));
             SaidaDeColaborador::create($abrirChamado);
             
         }
@@ -333,7 +358,8 @@ class SaidaDeColaboradorController extends Controller
         $abrirChamado = $request->all();
         SaidaDeColaborador::create($abrirChamado);
         $suporte = $abrirChamado;
-        \Mail::to('johnny.almeida@zarpo.com.br')->send(new SuporteMail($suporte));
+        $title = "Solicitação de suporte";
+        \Mail::to('johnny.almeida@zarpo.com.br')->send(new SuporteMail($suporte, $title));
         return redirect('/chamados');
     }
 
@@ -341,7 +367,8 @@ class SaidaDeColaboradorController extends Controller
 
     public function index(Request $request) 
     {
-        $qtd = $request['qtd'] ?: 4;
+        if(Gate::allows(ability:'colaborador-view')){
+        $qtd = $request['qtd'] ?: 6;
         $page = $request['page'] ?: 1;
         $buscar = $request['buscar'];
         Paginator::currentPageResolver(function () use ($page){
@@ -356,7 +383,11 @@ class SaidaDeColaboradorController extends Controller
         
         
     return view('suporte.index', compact('verTodos'));
+    }else{
+        abort(code: 403, message: 'Access denied');
     }
+    }
+    
 
     public function show($id){
         
@@ -377,19 +408,27 @@ class SaidaDeColaboradorController extends Controller
     }
 
     public function edit($id){
-        
+        if(Gate::allows(ability:'colaborador-view')){
         $attDados = SaidaDeColaborador::find($id);
         return view('suporte.updateSaida', compact('attDados'));
+        } else{
+            abort(code: 403, message: 'Access denied');
+        }
         }
     
-    public function update(Request $request, $id){ 
+    public function update(Request $request, $id)
+    {
+        if(Gate::allows(ability:'colaborador-view')){ 
         $attDados = SaidaDeColaborador::find($id);
         $dados = $request->all();
         $attDados->update($dados);
         $atualizar = $dados;
-        \Mail::to('johnny.almeida@zarpo.com.br')->send(new updateChamadoMail($atualizar));
+        $title = "Seu chamado foi atualizado";
+        \Mail::to('johnny.almeida@zarpo.com.br')->send(new updateChamadoMail($atualizar, $title));
         return redirect()->route('todosChamados');
+        }else{
+            abort(code: 403, message: 'Access denied');
         }
 
-
+    }
 }

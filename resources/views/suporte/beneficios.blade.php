@@ -68,8 +68,8 @@
         </div>
 
         <div class="col-12">
-            <a href="{{ url()->previous() }}" class="btn btn-danger">Voltar</a>   
-            <button type="submit" class="btn btn-primary" id="mensagem-sucesso">Abrir chamado</button>
+            <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>  
+            <button type="submit" style="background-color:#0098F0;color:white;" class="btn btn">Abrir chamado</button>
             
         </div>
         </form>      

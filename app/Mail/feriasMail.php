@@ -11,14 +11,16 @@ class feriasMail extends Mailable
 {
     use Queueable, SerializesModels;
    public $feriasMail;
+   public $title;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($feriasMail)
+    public function __construct($feriasMail, $title)
     {
         $this->feriasMail = $feriasMail;
+        $this->title = $title;
     }
 
     /**
@@ -28,6 +30,7 @@ class feriasMail extends Mailable
      */
     public function build()
     {
+        $this->subject($this->title);
         return $this->markdown('mail.ferias');
     }
 }

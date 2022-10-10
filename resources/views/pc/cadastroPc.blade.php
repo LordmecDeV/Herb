@@ -79,7 +79,7 @@
 
                     <div class="col-5">
                     <label for="preco" class="form-label">Preço:</label>
-                    <input type="text" class="form-control" id="valor" placeholder="R$500,00" required name="preco" >
+                    <input type="number" class="form-control" id="valor" placeholder="R$500,00" required name="preco" >
                     </div>
 
                     <div class="col-5">

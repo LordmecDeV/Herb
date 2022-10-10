@@ -11,14 +11,16 @@ class SuporteMail extends Mailable
 {
     use Queueable, SerializesModels;
    public $suporte;
+   public $title;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($suporte)
+    public function __construct($suporte, $title)
     {
         $this->suporte = $suporte;
+        $this->title = $title;
     }
 
     /**
@@ -28,6 +30,7 @@ class SuporteMail extends Mailable
      */
     public function build()
     {
+        $this->subject($this->title);
         return $this->markdown('mail.suporte');
     }
 }

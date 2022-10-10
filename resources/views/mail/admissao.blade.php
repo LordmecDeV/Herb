@@ -1,5 +1,5 @@
 @component('mail::message')
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" border="0"></a>
+<a ><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;display: block; margin-left:auto;margin-right:auto;" border="0"></a>
     <h2 style="text-align:center;">{{{$admissao['titulo']}}}</h2>
     <br>
     <p>Um chamado de admissão foi solicitado por:{{{$admissao['colaboradorID']}}}!</p>
