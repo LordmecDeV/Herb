@@ -58,9 +58,24 @@
                     <label for="floatingSelect">Monitor</label>
                     </div>
 
-                    <div class="col-md-2">
-                    <label for="departamento" class="form-label">Departamento:</label>
-                    <input type="text" require class="form-control" id="departamento" name="departamento" value="{{$attDados->departamento}}">
+                    <div class="col-md-12">
+                        <label for="" class="form-label">Departamento:</label>
+                        <select id="inputState" name="departamento" required class="form-select">
+                        <option selected>Aéreo</option>
+                        <option {{($attDados->departamento == 'Conteúdo' ? 'selected' : '')}}>Conteúdo</option>
+                        <option {{($attDados->departamento == 'Financeiro' ? 'selected' : '')}}>Financeiro</option>
+                        <option {{($attDados->departamento == 'Recursos Humanos' ? 'selected' : '')}}>Recursos Humanos</option>
+                        <option  {{($attDados->departamento == 'Marketing' ? 'selected' : '')}}>Marketing</option>
+                        <option {{($attDados->departamento == 'Novos negócios' ? 'selected' : '')}}>Novos negócios</option>
+                        <option {{($attDados->departamento == 'Customer Service' ? 'selected' : '')}}>Customer Service</option>
+                        <option {{($attDados->departamento == 'Sourcing Operacional' ? 'selected' : '')}}>Sourcing Operacional</option>
+                        <option  {{($attDados->departamento == 'Sourcing Comercial' ? 'selected' : '')}}>Sourcing Comercial</option>
+                        <option  {{($attDados->departamento == 'Upload' ? 'selected' : '')}}>Upload</option>
+                        <option  {{($attDados->departamento == 'Tech Table(P&D)' ? 'selected' : '')}}>Tech Table(P&D)</option>
+                        <option {{($attDados->departamento == 'Tech Table(I&S)' ? 'selected' : '')}}>Tech Table(I&S)</option>
+                        <option {{($attDados->departamento == 'Tech Table(BI)' ? 'selected' : '')}}>Tech Table(BI)</option>
+                        <option {{($attDados->departamento == 'Diretoria' ? 'selected' : '')}}>Diretoria</option>
+                        </select>
                     </div>
 
                     <div class="form-floating">

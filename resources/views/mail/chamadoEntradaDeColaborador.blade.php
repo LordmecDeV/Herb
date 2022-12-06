@@ -8,7 +8,7 @@
     <br>
     <p>3 - Verificar disponibilade de maquina em estoque</p>
     <br>
-    <p>3 - Criar colaborador no Herb e atualizar inventario</p>
+    <p>3 - Criar colaborador no chamado e atualizar inventario</p>
     <br>
     <p>4 - O chamado de entrada de colaborador deve ser respondido 3 dias antes da entrada do colaborador, e os acessos entregues com 3 dias de antecedência</p>
     <br>
@@ -19,7 +19,6 @@
         <li>Acessos: {{{$chamadoEntrada['sistemas']}}} </li>
         <li>Data de entrada: {{{$chamadoEntrada['data_de_entrada']}}} </li>
         <li>Grupos de email: {{{$chamadoEntrada['grupos_email']}}} </li>
-        <li>VPN: {{{$chamadoEntrada['vpn']}}} </li>
         <li>Observação: {{{$chamadoEntrada['observacao']}}} </li>
     </ul>
 @endcomponent

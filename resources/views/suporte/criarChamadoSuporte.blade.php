@@ -42,7 +42,7 @@
             <label for="" class="form-label">Prioridade:</label>
             <select required id="inputState" name="prioridade" class="form-select">
             <option>Baixa</option>
-            <option>Media</option>
+            <option>Média</option>
             <option>Alta</option>
             </select>
         </div>

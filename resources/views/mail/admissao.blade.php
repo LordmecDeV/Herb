@@ -16,9 +16,15 @@
     <br>
     <p>Horario de entrada/saida: {{{$admissao['horario_trabalho']}}}</p>
     <br>
+    <p>Comissão/Bônus: {{{$admissao['comissao']}}}</p>
+    <br>
+    <p>Recorrência da comissão/bônus:: {{{$admissao['recorrencia_comissao']}}}</p>
+    <br>
     <p>Salário fixo: {{{$admissao['sal_atual']}}}</p>
     <br>
     <p>Data de inicio: {{{$admissao['data_de_entrada']}}}</p>
+    <br>
+    <p>Teto da comissão: {{{$admissao['valor_total']}}}</p>
     <br>
     <p>Observação: {{{$admissao['observacao']}}}</p>
     <br>

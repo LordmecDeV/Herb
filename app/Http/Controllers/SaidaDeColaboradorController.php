@@ -21,6 +21,7 @@ use App\Mail\compraMail;
 use App\Mail\reembolsoMail;
 use App\Mail\adiantamentoReembolsoMail;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class SaidaDeColaboradorController extends Controller
 {
@@ -41,7 +42,7 @@ class SaidaDeColaboradorController extends Controller
         $chamadoEntrada = $abrirChamadoEntrada;
         $title = "Solicitação de acessos e equipamentos";
         \Mail::to('johnny.almeida@zarpo.com.br')->send(new entradaDeColaboradorChamadoMail($chamadoEntrada, $title));
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function store(Request $request) 
@@ -73,7 +74,7 @@ class SaidaDeColaboradorController extends Controller
             \Mail::to('johnny.almeida@zarpo.com.br')->send(new saidaDeColaboradormail($saidaDecolaborador, $title));
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function abrirChamadoSuporte() 
@@ -111,7 +112,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function indexUser($id, Request $request) 
@@ -202,7 +203,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados'); 
+        return redirect('/meusChamados'.'/'.Auth::user()->id); 
     }
 
     public function abrirChamadoAdiantamentoReembolso(Request $request) 
@@ -230,7 +231,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function abrirChamadoReembolso(Request $request) 
@@ -258,7 +259,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function abrirChamadoSolicitacaoDeCompra(Request $request) 
@@ -286,7 +287,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function abrirChamadoBeneficios(Request $request) 
@@ -314,7 +315,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados'); 
+        return redirect('/meusChamados'.'/'.Auth::user()->id); 
     }
 
     public function abrirChamadoFerias(Request $request) 
@@ -343,7 +344,7 @@ class SaidaDeColaboradorController extends Controller
             
         }
 
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
     public function showChamadoUser($id) 
@@ -360,7 +361,7 @@ class SaidaDeColaboradorController extends Controller
         $suporte = $abrirChamado;
         $title = "Solicitação de suporte";
         \Mail::to('johnny.almeida@zarpo.com.br')->send(new SuporteMail($suporte, $title));
-        return redirect('/chamados');
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
     }
 
    

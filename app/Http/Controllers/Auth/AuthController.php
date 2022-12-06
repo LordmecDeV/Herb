@@ -64,6 +64,7 @@ class AuthController extends Controller
     {  
         $request->validate([
             'name' => 'required',
+            'cargo' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -71,7 +72,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
          
-        return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return redirect("/home")->withSuccess('Great! You have Successfully loggedin');
     }
     
     /**
@@ -82,7 +83,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return view('/home');
         }
   
         return redirect("login")->withSuccess('Opps! You do not have access');
@@ -97,6 +98,7 @@ class AuthController extends Controller
     {
       return User::create([
         'name' => $data['name'],
+        'cargo' => $data['cargo'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);

@@ -16,7 +16,7 @@
             <div class="card mt-3">
             <div class="card-body">
                 <h5 class="card-title">{{$dadosconteudo->titulo}}</h5>
-                <p class="card-text">{{$dadosconteudo->conteudo}}</p>
+                <p class="card-text">{{$dadosconteudo->conteudo}}...</p>
                 <a href="{{ route('verConteudo', ['id' => $dadosconteudo->id]) }}" class="btn btn-primary">Ver</a>
             </div>
             </div>

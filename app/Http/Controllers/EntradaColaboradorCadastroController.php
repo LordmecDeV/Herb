@@ -34,7 +34,7 @@ class EntradaColaboradorCadastroController extends Controller
         EntradaDeColaboradorCadastro::create($cadastroColaborador);
         $entradaDecolaborador = $cadastroColaborador;
         $title = "Bem vindo ao Zarpo ".$entradaDecolaborador['nome'];
-        \Mail::to(['johnny.almeida@zarpo.com.br'] )->send(new entradaDeColaboradorMail($entradaDecolaborador, $title));
+        \Mail::to(['dpto.pessoal@zarpo.com.br', $entradaDecolaborador['email'], 'johnny.almeida@zarpo.com.br'] )->send(new entradaDeColaboradorMail($entradaDecolaborador, $title));
         return redirect('/colaboradores', );
     }else{
         abort(code: 403, message: 'Access denied');

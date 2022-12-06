@@ -16,6 +16,8 @@
     <br>
     <p>Favorecido: {{{$adiantamentoReembolso['favorecido']}}}</p>
     <br>
+    <p>Chave Pix: {{{$adiantamentoReembolso['pix']}}}</p>
+    <br>
     <p>Tipo de conta: {{{$adiantamentoReembolso['tipo_conta']}}}</p>
     <br>
     <p>Agencia: {{{$adiantamentoReembolso['agencia']}}}</p>

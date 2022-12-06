@@ -411,7 +411,7 @@ left: 0;
 
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small" style="">
           <li><a class="dropdown-item" href="{{ route('indexUser', ['id' => Auth::user()->id]) }}">Meus chamados</a></li>
@@ -443,7 +443,7 @@ left: 0;
                 <div class="card w-80 shadow-lg p-3  bg-body rounded">
                 <img src="{{ asset('imagens/undraw_Pair_programming_re_or4x (1).png')}}" style="height:350px;max-width:500px;" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">Suporte Tecnico</h5>
+                <h5 class="card-title">Suporte Técnico</h5>
                 <p class="card-text"></p>
                 <a href="{{route('suportecolaborador')}}" class="btn btn" style="background-color:#0098F0;color:white;">Abrir chamado</a>
                 </div>
@@ -465,25 +465,19 @@ left: 0;
                 </div>
                 </div>
 
-</body>
-
-                
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-light" style="position:fixed;bottom:0;letf:0;width:100vw;">
+</body>         
+                <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top bg-light" style="position:fixed;bottom:0;letf:0;width:100vw;">
                     <p class="col-md-4 mb-0 text-muted">© 2022 Zarpo</p>
-
                     <a ><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:50px;" border="0"></a>
                     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                     </a>
-
                     <ul class="nav col-md-4 justify-content-end">
                     <li class="nav-item"><a href="{{ route('indexUser', ['id' => Auth::user()->id]) }}" class="nav-link px-2 text-muted">Meus chamados</a></li>
                     <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted">Abrir um chamado</a></li>
                     <li class="nav-item"><a href="{{route('logout')}}" class="nav-link px-2 text-muted">Logout</a></li>
                     </ul>
                 </footer>
-              
-
-                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
 </html>

@@ -1,5 +1,18 @@
 @extends('suporte.layout')
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+              $(document).ready(function() {
+  $('#inputOculto').hide();
+  $('#mySelect').change(function() {
+    if ($('#mySelect').val() == 'Sim') {
+      $('#inputOculto').show();
+    } else {
+      $('#inputOculto').hide();
+    }
+  });
+});
+</script>
 <div class="parent">
         <div class="div1"> 
 <form class="row g-3 shadow-lg mb-4 p-3 mb-5 bg-body rounded mt-3" method="post" enctype="multipart/form-data" action="/abrirChamadoAdmissao">
@@ -78,7 +91,28 @@
 </select>
 </div>
 <br>
-
+<div class="col-12">
+<label for="" class="form-label">Comissão/Bônus:</label>
+<select id="mySelect"name="comissao" required class="form-select">
+<option>Sim</option>
+<option selected>Não</option>
+</select>
+</div>
+<div id="inputOculto">
+<div class="col-12">
+<label f class="form-label">Teto comissão:</label>
+<input  type="text" class="form-control" placeholder="2.450,00" name="valor_total">
+</div>
+</div>
+<br>
+<div class="col-md-12">
+<label for="inputState" class="form-label">Recorrência da comissão/bônus:</label>
+<select id="inputState" name="recorrencia_comissao" required class="form-select">
+<option>Trimestral</option>
+<option>Não se aplica</option>
+</select>
+</div>
+<br>
 <div class="col-md-12">
 <label f class="form-label">Acessos:</label>
 <input required type="text" class="form-control" placeholder="Magento, Zio, MicroSip..." name="sistemas">
@@ -105,13 +139,11 @@
 </div>
 
 <div class="col-6">
-            <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>  
-            <button type="submit" style="background-color:#0098F0;color:white;" class="btn btn">Abrir chamado</button>
-            
-        </div>
+ <a href="{{ url()->previous() }}" class="btn btn-secondary">Voltar</a>  
+<button type="submit" style="background-color:#0098F0;color:white;" class="btn btn">Abrir chamado</button>           
+</div>
 </div>
 </div> 
-
 </div>
 </div>
 </div>

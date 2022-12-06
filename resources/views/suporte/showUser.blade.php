@@ -88,7 +88,6 @@
                                     <li class="list-group-item">ID: {{$verDados->id}}</li>
                                     <li class="list-group-item">Departamento: {{$verDados->dpto}}</li>
                                     <li class="list-group-item">Telefone para contato(contratado): {{$verDados->telefone}}</li>
-                                    <li class="list-group-item">Salário fixo: {{$verDados->sal_atual}}</li>
                                     <li class="list-group-item">Data de Inicio: {{$verDados->data_de_entrada}}</li>
                                     <li class="list-group-item">Horário de trabalho: {{$verDados->horario_trabalho}}</li>
                                     <li class="list-group-item">Anexo:<img src="{{ asset('imagens/'.$verDados->file_path) }}" class=" img-thumbnail rounded float-end zoom" style=""></li>
