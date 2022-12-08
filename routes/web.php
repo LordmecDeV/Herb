@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BaseConhecimentoController;
 use App\Http\Controllers\SaidaDeColaboradorController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 /*
@@ -35,6 +36,10 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+//Route::get('login', 'LoginController@index');
+Route::get('{provider}/callback',[App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
+Route::get('login/{provider}',[App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider']);
+
   
 //Routes Herb
 
