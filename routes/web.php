@@ -111,6 +111,7 @@ Route::post('/abrirChamadoAdiantamentoReembolso',[App\Http\Controllers\SaidaDeCo
 Route::post('/abrirChamadoReembolso',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoReembolso'])->name('chamadoReembolso');
 Route::get('/chamadoSolicitacaoDeCompra', [App\Http\Controllers\SaidaDeColaboradorController::class, 'compra'])->name('solicitacaoDeCompra');
 Route::post('/abrirChamadoSolicitacaoDeCompra',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoSolicitacaoDeCompra'])->name('compra');
+Route::post('/atualizarChamado/{id}',[App\Http\Controllers\SaidaDeColaboradorController::class, 'comentarioChamado'])->name('solicitarRevisao');
 
 //Routes dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

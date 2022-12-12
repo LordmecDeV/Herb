@@ -68,6 +68,7 @@ return new class extends Migration
             $table->string('quantidade')->nullable();
             $table->string('urgencia')->nullable();
             $table->string('finalidade')->nullable();
+            $table->string('mensagem')->nullable();
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ use App\Mail\admissaoMail;
 use App\Mail\compraMail;
 use App\Mail\reembolsoMail;
 use App\Mail\adiantamentoReembolsoMail;
+use App\Mail\mensagemChamadoMail;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 
@@ -353,6 +354,15 @@ class SaidaDeColaboradorController extends Controller
         return view('suporte.showUser', compact('verDados'));
     }
 
+    public function comentarioChamado($id, Request $request)
+    {
+        $verChamado = SaidaDeColaborador::find($id);
+        $atualizarChamado = $request->all();
+        $verChamado->update($atualizarChamado);
+        $mensagem = $verChamado;
+        \Mail::to('johnny.almeida@zarpo.com.br')->send(new mensagemChamadoMail($mensagem));
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
+    }
 
     public function storeChamado(Request $request)
     {
