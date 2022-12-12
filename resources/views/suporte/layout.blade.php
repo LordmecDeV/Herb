@@ -432,19 +432,7 @@ a .uil {
 
 
 
-                <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top bg-light" style="">
-                    <p class="col-md-4 mb-0 text-muted">© 2022 Zarpo</p>
-
-                    <a href=""><img src="https://i.ibb.co/S07yz2v/logo-zarpo-320x132-transparente.png" alt="logo-zarpo-320x132-transparente" style="max-width: 100%;height: 60px;margin-left:50px;" border="0"></a>
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    </a>
-
-                    <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="{{ route('indexUser', ['id' => Auth::user()->id]) }}" class="nav-link px-2 text-muted">Meus chamados</a></li>
-                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted">Abrir um chamado</a></li>
-                    <li class="nav-item"><a href="{{route('logout')}}" class="nav-link px-2 text-muted">Logout</a></li>
-                    </ul>
-                </footer>
+                
 
 
 

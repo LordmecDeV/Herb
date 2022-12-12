@@ -4,7 +4,7 @@
 <div class="parent" >
         <div class="div1"> 
 
-        <form class="row g-3 shadow-lg p-3  bg-body rounded mt-3 mb-4" method="post" action="/criarChamadoSuporte">
+        <form class="row g-3 shadow-lg p-3  bg-body rounded  mb-4" method="post" style="margin-top:80px;" action="/criarChamadoSuporte">
         @csrf
         {{ method_field('POST') }}
             <input type="hidden" id="custId" name="titulo" value="Suporte">
