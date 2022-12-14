@@ -96,6 +96,7 @@ Route::put('/attChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorControll
 Route::get('/home', [App\Http\Controllers\SaidaDeColaboradorController::class, 'home'])->name('home');
 Route::get('/meusChamados/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'indexUser'])->name('indexUser');
 Route::get('/dadosChamado/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'showChamadoUser'])->name('showUser');
+Route::get('/deletarChamado/{id}', [App\Http\Controllers\SaidaDeColaboradorController::class, 'deleteChamadoUser'])->name('deleteChamadoUser');
 Route::get('/chamadoMovimentacaoColaborador',[App\Http\Controllers\SaidaDeColaboradorController::class, 'chamadoMovimentacaoColaborador'])->name('movimentacao');
 Route::post('/criarChamadoMovimentacaoColaborador',[App\Http\Controllers\SaidaDeColaboradorController::class, 'abrirChamadoMovimentacao'])->name('movimentacaoColaborador');
 Route::get('/homeDpto', [App\Http\Controllers\SaidaDeColaboradorController::class, 'homeDpto'])->name('homeDpto');

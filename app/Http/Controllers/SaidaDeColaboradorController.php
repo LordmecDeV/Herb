@@ -353,6 +353,12 @@ class SaidaDeColaboradorController extends Controller
         $verDados = SaidaDeColaborador::find($id);
         return view('suporte.showUser', compact('verDados'));
     }
+    
+    public function deleteChamadoUser($id)
+    {
+        $deleteChamado = SaidaDeColaborador::find($id)->delete();
+        return redirect('/meusChamados'.'/'.Auth::user()->id);
+    }
 
     public function comentarioChamado($id, Request $request)
     {
